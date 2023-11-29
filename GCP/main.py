@@ -35,19 +35,46 @@ def predict_disease(request):
 
     # Strona HTML do przesyłania obrazów
     upload_html = '''
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Apple Leaf Diseases Detector</title>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apple Leaf Diseases Detector</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://storage.googleapis.com/background_adm/background.png');
+            background-size: cover;
+            opacity: 0.5;
+            z-index: -1; /* Umieszcza tło za innymi elementami */
+        }
+        .content {
+            position: relative;
+            z-index: 1; /* Upewnia się, że treść jest nad tłem */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
         <h1>Apple Leaf Diseases Detector</h1>
         <form action="" method="post" enctype="multipart/form-data">
             <input type="file" name="file" required>
             <input type="submit" value="Upload Image">
         </form>
-    </body>
-    </html>
+    </div>
+</body>
+</html>
+
     '''
 
     # GET: return HTML
