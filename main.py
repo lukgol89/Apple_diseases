@@ -6,12 +6,13 @@ from flask import request
 from io import BytesIO
 
 # Confg GCS
-GCS_BUCKET = 'model_apple_diseases_2'
-GCS_MODEL_FILE = 'model_apple_diseases_2/4'
+GCS_BUCKET = 'a_d_m'
+GCS_MODEL_FILE = 'a_d_m/2'
 storage_client = storage.Client()
 
 
 model = None
+
 
 # Load model func
 def load_model():
@@ -22,6 +23,7 @@ def load_model():
         model_bytes = blob.download_as_bytes()
         model = tf.keras.models.load_model(BytesIO(model_bytes))
     return model
+
 
 # Google Cloud Functions
 def predict_disease(request):
