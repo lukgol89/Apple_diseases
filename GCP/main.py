@@ -39,12 +39,14 @@ def predict_disease(request):
 <html>
 <head>
     <title>Apple Leaf Diseases Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             position: relative;
+            font-family: 'Roboto', sans-serif;
         }
         body::before {
             content: '';
@@ -53,14 +55,36 @@ def predict_disease(request):
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('https://storage.googleapis.com/background_adm/background.png');
+            background-image: url('https://storage.cloud.google.com/background_adm/background.png');
             background-size: cover;
             opacity: 0.5;
-            z-index: -1; /* Umieszcza tło za innymi elementami */
+            z-index: -1;
         }
         .content {
             position: relative;
-            z-index: 1; /* Upewnia się, że treść jest nad tłem */
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        input[type="file"], input[type="submit"] {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
         }
     </style>
 </head>
